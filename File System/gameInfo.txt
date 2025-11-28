@@ -1,0 +1,3 @@
+ff701, Final Fantasy VII, PlayStation, Fantasy, 2025-08-01
+gta02, Grand Theft Auto 5, Xbox, Action, 2025-04-01
+mnc03, Minecraft, Nintendo Switch, Sandbox, 2025-06-01
