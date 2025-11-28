@@ -64,7 +64,7 @@ pyinstaller --clean --icon="C:\Users\digot\Projects\6-Minute-Bloodbath-Coursewor
 
 ## 📄 License
 
-This project is licensed under the [MIT license] - see the [LICENSE](LICENSE.md) file for details.
+This project is licensed under the [MIT license] - see the [LICENSE](File System/LICENSE.md) file for details.
 
 ## 🙏 Acknowledgments
 
