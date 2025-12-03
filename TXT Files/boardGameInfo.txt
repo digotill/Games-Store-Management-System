@@ -1,3 +1,15 @@
 art01, Articulate, 4-20, Word, 2025-08-01
 bac02, Backgammon, 2, Strategy, 2024-08-01
 chs03, Chess, 2, Strategy, 2024-08-01
+scr04, Scrabble, 2-4, Word, 2025-05-15
+mon05, Monopoly, 2-8, Economic, 2024-11-20
+cat06, Catan, 3-4, Strategy, 2025-01-10
+ris07, Risk, 2-6, War/Strategy, 2024-10-05
+cla08, Clue, 3-6, Mystery, 2025-03-25
+pnt09, Pictionary, 3+, Drawing, 2025-07-01
+dom10, Dominos, 2-4, Tile, 2024-09-12
+jng11, Jenga, 1+, Dexterity, 2025-02-28
+car12, Cards Against Humanity, 4+, Party, 2025-06-07
+cod13, Codenames, 4-8, Word/Spy, 2025-04-18
+trl14, Ticket to Ride, 2-5, Strategy, 2024-12-03
+pan15, Pandemic, 2-4, Co-op Strategy, 2025-01-22
