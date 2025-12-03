@@ -1,3 +1,7 @@
+import os
+
+cur_path = os.path.dirname(__file__)
+
 def loadGameSearch(gameType):
           Games = {}
 
