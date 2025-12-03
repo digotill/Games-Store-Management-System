@@ -3,10 +3,6 @@
 # Bytecode version: 3.12.0rc2 (3531)
 # Source timestamp: 2025-10-28 09:45:22 UTC (1761644722)
 
-import os
-
-cur_path = os.path.dirname(__file__)
-
 """
 subscriptionManager.py
 
@@ -26,7 +22,9 @@ Functions:
 """
 import csv
 from datetime import datetime
+import os
 
+cur_path = os.path.dirname(__file__)
 BASIC_LIMIT = 2
 PREMIUM_LIMIT = 7
 
@@ -42,7 +40,8 @@ def load_subscriptions(file_name='Subscription_Info.txt'):
               dict: A dictionary containing customer IDs as keys and their subscription details as values.
           """
           subscriptions = {}
-          with open(os.path.abspath(os.path.join(cur_path, os.pardir)) + '\\' + 'TXT Files' + '\\' + file_name, 'r') as file:
+          print(os.path.join(os.path.abspath(os.path.join(cur_path, os.pardir)), 'TXT Files', file_name))
+          with open(os.path.join(os.path.abspath(os.path.join(cur_path, os.pardir)), 'TXT Files', file_name), 'r', encoding='utf-8') as file:
                     reader = csv.reader(file)
                     next(reader)
                     for row in reader:
