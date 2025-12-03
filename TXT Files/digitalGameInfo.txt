@@ -5,7 +5,8 @@ zel04, The Legend of Zelda: Tears of the Kingdom, Nintendo Switch, Action-Advent
 rdr05, Red Dead Redemption 2, PlayStation, Action-Adventure, 2025-09-08
 wth06, The Witcher 3: Wild Hunt, Xbox, Role-Playing, 2025-02-24
 pkm07, Pokémon Scarlet/Violet, Nintendo Switch, Role-Playing, 2025-11-18
-cyt08, Cyberpunk 2077, PC, Role-Playing, 2025-12-10 eld09, Elden Ring, PC, Action RPG, 2025-01-21
+cyt08, Cyberpunk 2077, PC, Role-Playing, 2025-12-10
+eld09, Elden Ring, PC, Action RPG, 2025-01-21
 str10, StarCraft II, PC, Real-Time Strategy, 2025-07-27
 spt11, Halo Infinite, Xbox, First-Person Shooter, 2025-12-08
 met12, Metroid Prime Remastered, Nintendo Switch, Action-Adventure, 2025-03-01
