@@ -60,4 +60,4 @@ def add_feedback(game_id, rating, comments, file_name='Game_Feedback.txt'):
 if __name__ == '__main__':
           feedback_list = load_feedback()
           print(feedback_list)
-          add_feedback('fifa02', 5, 'Absolutely amazing!', 'Game_Feedback.txt')
+          add_feedback('fifa02', 5, 'Absolutely amazing!', '../TXT Files/Game_Feedback.txt')

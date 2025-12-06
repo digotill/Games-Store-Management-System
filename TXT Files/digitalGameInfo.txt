@@ -13,3 +13,13 @@ met12, Metroid Prime Remastered, Nintendo Switch, Action-Adventure, 2025-03-01
 tms13, The Sims 4, PC, Life Simulation, 2025-09-02
 for14, Forza Horizon 5, Xbox, Racing, 2025-11-09
 hzd15, Horizon Forbidden West, PlayStation, Action RPG, 2025-02-18
+dst16, Death Stranding, PlayStation, Action, 2025-10-04
+slp17, Sea of Thieves, Xbox, Adventure, 2025-04-30
+sbo18, Subnautica: Below Zero, PC, Survival, 2025-05-14
+spl19, Splatoon 3, Nintendo Switch, Third-Person Shooter, 2025-09-09
+skt20, Star Wars Jedi: Survivor, PlayStation, Action-Adventure, 2025-04-28
+bdg21, Baldur's Gate 3, PC, Role-Playing, 2025-08-03
+rsd22, Resident Evil 4 Remake, Xbox, Survival Horror, 2025-03-24
+fbg23, Fall Guys, Nintendo Switch, Battle Royale, 2025-06-21
+dbt24, Detroit: Become Human, PC, Interactive Drama, 2025-08-16
+mk825, Mario Kart 8 Deluxe, Nintendo Switch, Racing, 2025-04-28

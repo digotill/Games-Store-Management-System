@@ -1,7 +1,2 @@
-GameID,Rating,Comments
-Art01,4,Hilarious!
-bac02,2,Not exciting
-chs03,5,My favourite game of all time
-dft01,4,Not bad
-dft01,4,Not bad
+fifa02,5,Absolutely amazing!
 dft01,4,Not bad

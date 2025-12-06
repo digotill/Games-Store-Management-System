@@ -1,5 +1,8 @@
 import os
 import csv
+import ipywidgets as widgets
+from IPython.display import display
+from ipywidgets import VBox, Layout, HBox
 cur_path = os.path.dirname(__file__)
 
 def loadGameSearch(gameType):

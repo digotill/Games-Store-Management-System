@@ -13,3 +13,13 @@ car12, Cards Against Humanity, 4+, Party, 2025-06-07
 cod13, Codenames, 4-8, Word/Spy, 2025-04-18
 trl14, Ticket to Ride, 2-5, Strategy, 2024-12-03
 pan15, Pandemic, 2-4, Co-op Strategy, 2025-01-22
+tab16, Taboo, 4+, Word, 2025-05-01
+uno17, Uno, 2-10, Card, 2024-07-01
+tws18, Twister, 2+, Physical, 2024-09-01
+dix19, Dixit, 3-6, Storytelling, 2025-03-05
+glo20, Gloomhaven, 1-4, Tactical RPG, 2025-11-15
+spl21, Splendor, 2-4, Engine Building, 2025-02-14
+azd22, Azul, 2-4, Tile Placement, 2025-10-25
+tma23, The Mind, 2-4, Co-op Card, 2024-06-19
+tel24, Telestrations, 4-12, Party/Drawing, 2025-07-28
+bal25, Balderdash, 2+, Bluffing, 2024-11-05
