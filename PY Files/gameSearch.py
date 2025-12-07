@@ -8,7 +8,6 @@ game_text = widgets.Text(value='', placeholder='e.g. minecraft', description='En
 bg_checkbox = widgets.Checkbox(value=True, description='Include board games', disabled=False, indent=False)
 dg_checkbox = widgets.Checkbox(value=True, description='Include digital games', disabled=False, indent=False)
 game_buttons = widgets.ToggleButtons(options=[],description='Choose a game:',disabled=False,button_style='', tooltips=[])
-game_description = widgets.Label(value="Game Description")
 game_description = widgets.HTML(value="",placeholder='',description='',)
 out = widgets.Output(layout={'border': '1px solid black'})
 
@@ -24,9 +23,14 @@ on_search("")
 
 def choose_game(change):
           new_description = ""
-          gameInfo = loadGame(change['new'])
-          for key in gameInfo.keys():
-                    new_description = new_description + "<br>" + key + ": " + gameInfo[key]
+          game_id, game_data = loadGame(change['new'])
+          for key in game_data.keys():
+                    new_description = new_description + "<br>" + key + ": " + game_data[key]
+          rentals = loadRental()
+          if rentals[game_id]["End"] == " ":
+                    new_description = new_description + "<br>" + "Availability" + ": " + "True"
+          else:
+                    new_description = new_description + "<br>" + "Availability" + ": " + "False"
           game_description.value = new_description
 
 game_buttons.observe(choose_game, names='value')

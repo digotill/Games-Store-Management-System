@@ -23,24 +23,20 @@ def loadGameSearch(gameType):
           return Games
 
 def loadRental():
+          Rentals = {}
           with open(os.path.join(os.path.abspath(os.path.join(cur_path, os.pardir)), 'TXT Files', 'Rental.txt'), 'r', encoding='utf-8') as file:
                     reader = csv.reader(file)
                     next(reader)
                     for row in reader:
-                              game_id, start, end,  = row
-                              Games[game_id] = {'Start': start, 'End': end, 'User ID': user_id}
+                              game_id, start, end, user_id  = row
+                              Rentals[game_id] = {'Start': start, 'End': end, 'User ID': user_id}
+          return Rentals
 
 
 def loadGame(gameName):
           all_games = loadGameSearch(["digital", "board"])
           for game_id, game_data in all_games.items():
                     if game_data['Title'] == gameName:
-                              return game_data
+                              return game_id, game_data
           return None
 
-def returnGameID(gameName):
-          all_games = loadGameSearch(["digital", "board"])
-          for game_id, game_data in all_games.items():
-                    if game_data['Title'] == gameName:
-                              return game_id
-          return None
