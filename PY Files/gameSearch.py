@@ -1,27 +1,43 @@
-import os
-import csv
 import ipywidgets as widgets
-from IPython.display import display
 from ipywidgets import VBox, Layout, HBox
+from database import *
 cur_path = os.path.dirname(__file__)
 
-def loadGameSearch(gameType):
-          Games = {}
 
-          if "digital" in gameType:
-                    with open(os.path.join(os.path.abspath(os.path.join(cur_path, os.pardir)), 'TXT Files', 'digitalGameInfo.txt'), 'r', encoding='utf-8') as file:
-                              reader = csv.reader(file)
-                              next(reader)
-                              for row in reader:
-                                        game_id, title, platform, genre, purchase_date = row
-                                        Games[game_id] = {'type': 'digital', 'title': title, 'platform': platform, 'genre': genre, 'purchase_date': purchase_date}
-          if "board" in gameType:
-                    with open(os.path.join(os.path.abspath(os.path.join(cur_path, os.pardir)), 'TXT Files', 'boardGameInfo.txt'), 'r', encoding='utf-8') as file:
-                              reader = csv.reader(file)
-                              next(reader)
-                              for row in reader:
-                                        game_id, title, players, genre, purchase_date = row
-                                        Games[game_id] = {'type': 'board', 'title': title, 'players': players, 'genre': genre, 'purchase_date': purchase_date}
+game_text = widgets.Text(value='', placeholder='e.g. minecraft', description='Enter a game:', disabled=False,continuous_update=True)
+bg_checkbox = widgets.Checkbox(value=True, description='Include board games', disabled=False, indent=False)
+dg_checkbox = widgets.Checkbox(value=True, description='Include digital games', disabled=False, indent=False)
+game_buttons = widgets.ToggleButtons(options=[],description='Choose a game:',disabled=False,button_style='', tooltips=[])
+game_description = widgets.Label(value="Game Description")
+game_description = widgets.HTML(value="",placeholder='',description='',)
+out = widgets.Output(layout={'border': '1px solid black'})
 
-          return Games
+def on_search(change):
+          digitalGameSearch = loadGameSearch(["board" if bg_checkbox.value else None, "digital" if dg_checkbox.value else None])
+          options = []
+          for game in digitalGameSearch.values():
+                    if game_text.value.lower() in game['Title'].lower() or game_text.value == "":
+                              options.append(game['Title'])
+          game_buttons.options = options
+on_search("")
+
+
+def choose_game(change):
+          new_description = ""
+          gameInfo = loadGame(change['new'])
+          for key in gameInfo.keys():
+                    new_description = new_description + "<br>" + key + ": " + gameInfo[key]
+          game_description.value = new_description
+
+game_buttons.observe(choose_game, names='value')
+bg_checkbox.observe(on_search, names='value')
+dg_checkbox.observe(on_search, names='value')
+game_text.observe(on_search, names='value')
+
+widgets_container1 = HBox([game_text, bg_checkbox, dg_checkbox], layout=Layout(display='flex'))
+widgets_container2 = HBox([game_buttons], layout=Layout(display='flex'))
+widgets_container3 = HBox([game_description], layout=Layout(display='flex'))
+widgets_container4 = HBox([out], layout=Layout(display='flex'))
+
+Search_Tab = VBox([widgets_container1, widgets_container2, widgets_container3, widgets_container4])
 
