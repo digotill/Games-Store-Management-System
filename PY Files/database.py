@@ -8,21 +8,22 @@ def loadGameSearch(gameType):
           Games = {}
 
           if "digital" in gameType:
-                    with open(os.path.join(os.path.abspath(os.path.join(cur_path, os.pardir)), 'TXT Files', 'digitalGameInfo.txt'), 'r', encoding="UTF-16") as file:
+                    with open(os.path.join(os.path.abspath(os.path.join(cur_path, os.pardir)), 'TXT Files', 'digitalGameInfo.txt'), 'r', encoding="UTF-8") as file:
                               reader = csv.reader(file)
                               next(reader)
                               for row in reader:
                                         game_id, title, platform, genre, purchase_date = row
-                                        Games[game_id] = {'Type': 'digital', 'Title': title, 'Platform': platform, 'Genre': genre, 'Purchase Date': purchase_date}
+                                        Games[game_id] = {'Type': 'Digital', 'Title': title, 'Platform': platform, 'Genre': genre, 'Purchase Date': purchase_date}
           if "board" in gameType:
-                    with open(os.path.join(os.path.abspath(os.path.join(cur_path, os.pardir)), 'TXT Files', 'boardGameInfo.txt'), 'r', encoding="UTF-16") as file:
+                    with open(os.path.join(os.path.abspath(os.path.join(cur_path, os.pardir)), 'TXT Files', 'boardGameInfo.txt'), 'r', encoding="UTF-8") as file:
                               reader = csv.reader(file)
                               next(reader)
                               for row in reader:
                                         game_id, title, players, genre, purchase_date = row
-                                        Games[game_id] = {'Type': 'board', 'Title': title, 'Players': players, 'Genre': genre, 'Purchase Date': purchase_date}
+                                        Games[game_id] = {'Type': 'Board', 'Title': title, 'Players': players, 'Genre': genre, 'Purchase Date': purchase_date}
 
           return Games
+
 
 def loadRental():
           Rentals = {}
@@ -52,7 +53,6 @@ def check_availability(game_id):
 
 def rent_game(game_id, user_id):
           rentals = loadRental()
-          print(rentals)
           rentals[game_id]["Start"] = now.strftime("%Y-%m-%d")
           rentals[game_id]["End"] = " "
           rentals[game_id]["User ID"] = user_id
@@ -61,8 +61,10 @@ def rent_game(game_id, user_id):
 def return_game(game_id):
           rentals = loadRental()
           if game_id in rentals and rentals[game_id]["End"].strip() == "":
-                              rentals[game_id]["End"] = now.strftime("%Y-%m-%d")
-                              write_dict_to(rentals, "Rental.txt")
+                    rentals[game_id]["End"] = now.strftime("%Y-%m-%d")
+                    write_dict_to(rentals, "Rental.txt")
+                    return True
+          return False
 
 return_game("pkm07")
 

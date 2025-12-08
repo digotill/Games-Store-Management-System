@@ -31,10 +31,11 @@ rentals = loadRental()
 def choose_game(change):
           new_description = ""
           game_id, game_data = loadGame(change['new'])
+          new_description += "<br> Game ID: " + game_id
           for key in game_data.keys():
-                    new_description = new_description + "<br>" + key + ": " + game_data[key]
+                    new_description += "<br>" + key + ": " + game_data[key]
           if check_availability(game_id):
-                    new_description = new_description + "<br>" + "Availability" + ": " + "True"
+                    new_description += "<br>" + "Availability" + ": " + "True"
           else:
                     new_description = new_description + "<br>" + "Availability" + ": " + "False"
           game_description.value = new_description
