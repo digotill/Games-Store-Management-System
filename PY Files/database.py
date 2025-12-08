@@ -66,8 +66,6 @@ def return_game(game_id):
                     return True
           return False
 
-return_game("pkm07")
-
 def loadGame(gameName):
           all_games = loadGameSearch(["digital", "board"])
           for game_id, game_data in all_games.items():
@@ -75,11 +73,17 @@ def loadGame(gameName):
                               return game_id, game_data
           return None
 
+def load_bookings():
+          Bookings = {}
+          with open(os.path.join(os.path.abspath(os.path.join(cur_path, os.pardir)), 'TXT Files', 'Booking.txt'), 'r', encoding="UTF-16") as file:
+                    reader = csv.reader(file)
+                    next(reader)
+                    for row in reader:
+                              user_id, date, time, guests= row
+                              Bookings[user_id] = {'Date': date, 'Time': time, 'Guests': guests}
+          return Bookings
 
-def error():
-          with out:
-                    try:
-                              pass
-                    except Exception as e:
-                              print(f"An unexpected error occurred: {type(e).__name__}")
-
+def make_booking(user_id, new_dict):
+          rentals = load_bookings()
+          rentals[user_id] = new_dict
+          write_dict_to(rentals, "Booking.txt")
