@@ -7,7 +7,7 @@ BASIC_LIMIT = 2
 PREMIUM_LIMIT = 7
 
 
-def load_subscriptions(file_name='Subscription_Info.txt'):
+def load_subscriptions(file_name='Subscriptions.txt'):
           subscriptions = {}
           with open(os.path.join(os.path.abspath(os.path.join(cur_path, os.pardir)), 'TXT Files', file_name), 'r', encoding='utf-8') as file:
                     reader = csv.reader(file)

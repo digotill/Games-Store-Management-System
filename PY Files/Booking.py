@@ -26,7 +26,7 @@ def on_enter(b):
           elif timer_picker.value is None:
                     message += "<h3>Choose a time</h3>"
           else:
-                    make_booking(user_ID_text.value, {'Date': timer_picker.value, 'Time': " " + time_text.value, 'Guests': " " +  guests_slider.value})
+                    make_booking(user_ID_text.value, {'Date': " " +  str(timer_picker.value), 'Time': " " + time_text.value, 'Guests': " " +  guests_slider.value})
                     timer_picker.value = None
                     user_ID_text.value = ""
                     guests_slider.value = "0"
