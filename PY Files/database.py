@@ -40,3 +40,12 @@ def loadGame(gameName):
                               return game_id, game_data
           return None
 
+def write_dict_to(new_dict, filename):
+          with open(os.path.join(os.path.abspath(os.path.join(cur_path, os.pardir)), 'TXT Files', filename), 'w', newline='', encoding="UTF-16") as csvfile:
+                    writer = csv.writer(csvfile)
+                    writer.writerow([])
+                    for primary_key, inner_dict in new_dict.items():
+                              row = [primary_key]
+                              row.extend(inner_dict.values())
+                              writer.writerow(row)
+
