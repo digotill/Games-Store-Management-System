@@ -1,10 +1,10 @@
 # Decompiled with PyLingual (https://pylingual.io)
-# Internal filename: subscriptionManager.py
+# Internal filename: SubscriptionManager.py
 # Bytecode version: 3.12.0rc2 (3531)
 # Source timestamp: 2025-10-28 09:45:22 UTC (1761644722)
 
 """
-subscriptionManager.py
+SubscriptionManager.py
 
 This module provides functionalities to manage customer subscriptions for a video game rental system.
 It includes functions to load subscription information from a text file, to check the status of a customer's subscription,
@@ -70,6 +70,7 @@ def check_subscription(customer_id, subscriptions):
           return False
 
 
+
 def get_rental_limit(subscription_type):
           """
           Get the rental limit based on the subscription type.
@@ -89,6 +90,5 @@ def get_rental_limit(subscription_type):
 
 if __name__ == '__main__':
           subscriptions = load_subscriptions()
-          print(check_subscription('coai', subscriptions))
-          print(get_rental_limit('Basic'))
-          print(get_rental_limit('Premium'))
+
+
