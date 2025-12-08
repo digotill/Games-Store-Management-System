@@ -1,5 +1,5 @@
 # Decompiled with PyLingual (https://pylingual.io)
-# Internal filename: FeedbackManager.py
+# Internal filename: Feedback.py
 # Bytecode version: 3.12.0rc2 (3531)
 # Source timestamp: 2025-10-28 09:45:20 UTC (1761644720)
 import os
@@ -7,7 +7,7 @@ import os
 cur_path = os.path.dirname(__file__)
 
 """
-FeedbackManager.py
+Feedback.py
 
 This module provides functionalities to manage game feedback for a video game rental system.
 It includes functions to load feedback information from a text file and to add new feedback records.

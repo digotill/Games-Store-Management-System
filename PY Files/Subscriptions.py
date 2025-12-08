@@ -1,10 +1,10 @@
 # Decompiled with PyLingual (https://pylingual.io)
-# Internal filename: SubscriptionManager.py
+# Internal filename: Subscriptions.py
 # Bytecode version: 3.12.0rc2 (3531)
 # Source timestamp: 2025-10-28 09:45:22 UTC (1761644722)
 
 """
-SubscriptionManager.py
+Subscriptions.py
 
 This module provides functionalities to manage customer subscriptions for a video game rental system.
 It includes functions to load subscription information from a text file, to check the status of a customer's subscription,
@@ -30,15 +30,6 @@ PREMIUM_LIMIT = 7
 
 
 def load_subscriptions(file_name='Subscription_Info.txt'):
-          """
-          Load subscription information from a text file into a dictionary.
-
-          Parameters:
-              file_name (str): The name of the text file containing subscription information.
-
-          Returns:
-              dict: A dictionary containing customer IDs as keys and their subscription details as values.
-          """
           subscriptions = {}
           with open(os.path.join(os.path.abspath(os.path.join(cur_path, os.pardir)), 'TXT Files', file_name), 'r', encoding='utf-8') as file:
                     reader = csv.reader(file)
@@ -51,17 +42,8 @@ def load_subscriptions(file_name='Subscription_Info.txt'):
                     return subscriptions
 
 
-def check_subscription(customer_id, subscriptions):
-          """
-          Check if a customer's subscription is active based on the current date.
-
-          Parameters:
-              customer_id (str): The ID of the customer.
-              subscriptions (dict): A dictionary containing subscription information.
-
-          Returns:
-              bool: True if the subscription is active, False otherwise.
-          """
+def check_subscription(customer_id):
+          subscriptions = load_subscriptions()
           current_date = datetime.now()
           if customer_id in subscriptions:
                     start_date = subscriptions[customer_id]['StartDate']
@@ -69,18 +51,7 @@ def check_subscription(customer_id, subscriptions):
                     return start_date <= current_date <= end_date
           return False
 
-
-
 def get_rental_limit(subscription_type):
-          """
-          Get the rental limit based on the subscription type.
-
-          Parameters:
-              subscription_type (str): The type of the subscription ("Basic" or "Premium").
-
-          Returns:
-              int: The rental limit for the given subscription type.
-          """
           if subscription_type == 'Basic':
                     return BASIC_LIMIT
           if subscription_type == 'Premium':
