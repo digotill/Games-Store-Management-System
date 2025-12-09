@@ -16,14 +16,14 @@ def loadGameSearch(gameType):
                               next(reader)
                               for row in reader:
                                         game_id, title, platform, genre, purchase_date = row
-                                        Games[game_id] = {'Type': 'Digital', 'Title': title, 'Platform': platform, 'Genre': genre, 'Purchase Date': purchase_date}
+                                        Games[game_id] = {'Type': ' Digital', 'Title': title, 'Platform': platform, 'Genre': genre, 'Purchase Date': purchase_date}
           if "board" in gameType:
                     with open(os.path.join(os.path.abspath(os.path.join(cur_path, os.pardir)), 'TXT Files', 'BoardGames.txt'), 'r', encoding="UTF-8") as file:
                               reader = csv.reader(file)
                               next(reader)
                               for row in reader:
                                         game_id, title, players, genre, purchase_date = row
-                                        Games[game_id] = {'Type': 'Board', 'Title': title, 'Players': players, 'Genre': genre, 'Purchase Date': purchase_date}
+                                        Games[game_id] = {'Type': ' Board', 'Title': title, 'Players': players, 'Genre': genre, 'Purchase Date': purchase_date}
 
           return Games
 
@@ -126,6 +126,25 @@ def g_time():
 def g_guests():
           return str(random.randint(0, 3))
 
+def earliest_returns(rental_data, num=5):
+          returnable_games = []
+
+          for game_id, details in rental_data.items():
+                    end_date_str = details.get('End', '').strip()
+
+                    if end_date_str:
+                              try:
+                                        return_date = datetime.strptime(end_date_str, '%Y-%m-%d')
+
+                                        returnable_games.append((game_id, return_date))
+                              except ValueError:
+                                        continue
+
+          sorted_games = sorted(returnable_games, key=lambda x: x[1])
+
+          top_5_games_with_dates = [(game_id, date.strftime('%Y-%m-%d')) for game_id, date in sorted_games[:num]]
+
+          return top_5_games_with_dates
 
 
 

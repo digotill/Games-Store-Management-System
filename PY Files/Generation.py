@@ -6,8 +6,8 @@ from database import *
 
 out = widgets.Output()
 button = widgets.Button(description='Generate files',disabled=False,button_style='',tooltip='Click me',icon='check')
-sub_text = widgets.Text(value='100', placeholder='', description='Amount of Subscriptions', disabled=False)
-book_text = widgets.Text(value='50', placeholder='e.g. coab', description='Amount of Bookings', disabled=False)
+sub_text = widgets.Text(value='100', placeholder='', description='Ne Subs', disabled=False)
+book_text = widgets.Text(value='50', placeholder='e.g. coab', description='N Bookings', disabled=False)
 rent_text = widgets.Text(value='0.5', placeholder='e.g. coab', description='Rental Chance', disabled=False)
 renting_text = widgets.HTML(value="",placeholder='',description='')
 

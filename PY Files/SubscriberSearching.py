@@ -1,7 +1,6 @@
 import ipywidgets as widgets
 from ipywidgets import VBox, Layout, HBox
 from psutil import users
-from setuptools.package_index import user_agent
 
 from database import *
 from Subscriptions import *
@@ -27,8 +26,8 @@ def on_search(change):
           for primary_key, inner_dict in Users.items():
                     if search_term in primary_key.lower() or search_term == "":
                               sub_type = inner_dict["SubscriptionType"]
-                              is_basic = (sub_type == "Basic" and basic_checkbox.value == True)
-                              is_premium = (sub_type == "Premium" and premium_checkbox.value == True)
+                              is_basic = (sub_type == " Basic" and basic_checkbox.value == True)
+                              is_premium = (sub_type == " Premium" and premium_checkbox.value == True)
                               if is_basic or is_premium:
                                         options.append(primary_key)
           options = sorted(options)
