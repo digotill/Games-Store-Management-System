@@ -1,8 +1,8 @@
 import ipywidgets as widgets
-from ipywidgets import VBox, Layout, HBox
-import random
+from ipywidgets import VBox, Layout
+
+from Database import *
 from Subscriptions import *
-from database import *
 
 out = widgets.Output()
 button = widgets.Button(description='Generate files',disabled=False,button_style='',tooltip='Click me',icon='check')

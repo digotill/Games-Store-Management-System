@@ -1,10 +1,7 @@
 import ipywidgets as widgets
 from ipywidgets import VBox, Layout, HBox
-from psutil import users
 
-from database import *
 from Subscriptions import *
-
 
 users_text = widgets.Text(value='', placeholder='e.g. tygh', description='Enter a User:', disabled=False, continuous_update=True)
 basic_checkbox = widgets.Checkbox(value=True, description='Include Basic subscriptions', disabled=False, indent=False)

@@ -1,7 +1,6 @@
 import ipywidgets as widgets
 from ipywidgets import VBox, Layout, HBox
 
-from database import *
 from Feedback import *
 
 out = widgets.Output(layout={'border': '1px solid black'})

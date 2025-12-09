@@ -1,7 +1,7 @@
 import ipywidgets as widgets
 from ipywidgets import VBox, Layout, HBox
-from database import *
 
+from Database import *
 
 game_text = widgets.Text(value='', placeholder='e.g. minecraft', description='Enter a game:', disabled=False,continuous_update=True)
 bg_checkbox = widgets.Checkbox(value=True, description='Include Board games', disabled=False, indent=False)

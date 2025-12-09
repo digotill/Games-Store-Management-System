@@ -11,7 +11,7 @@ def loadGameSearch(gameType, hastype=True):
           Games = {}
 
           if "digital" in gameType:
-                    with open(os.path.join(os.path.abspath(os.path.join(cur_path, os.pardir)), 'TXT Files', 'DigitalGames.txt'), 'r', encoding="UTF-16") as file:
+                    with open(os.path.join(os.path.abspath(os.path.join(cur_path, os.pardir)), 'TXT Files', 'DigitalGames.txt'), 'r', encoding="UTF-8") as file:
                               reader = csv.reader(file)
                               next(reader)
                               for row in reader:
@@ -21,7 +21,7 @@ def loadGameSearch(gameType, hastype=True):
                                         else:
                                                   Games[game_id] = {'Title': title, 'Platform': platform, 'Genre': genre, 'Purchase Date': purchase_date}
           if "board" in gameType:
-                    with open(os.path.join(os.path.abspath(os.path.join(cur_path, os.pardir)), 'TXT Files', 'BoardGames.txt'), 'r', encoding="UTF-16") as file:
+                    with open(os.path.join(os.path.abspath(os.path.join(cur_path, os.pardir)), 'TXT Files', 'BoardGames.txt'), 'r', encoding="UTF-8") as file:
                               reader = csv.reader(file)
                               next(reader)
                               for row in reader:

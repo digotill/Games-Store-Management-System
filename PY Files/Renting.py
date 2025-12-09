@@ -1,8 +1,8 @@
 import ipywidgets as widgets
 from ipywidgets import VBox, Layout, HBox
 
+from Database import *
 from Subscriptions import *
-from database import *
 
 out = widgets.Output(layout={'border': '1px solid black'})
 user_ID_text = widgets.Text(value='', placeholder='e.g. coab', description='User ID:', disabled=False)

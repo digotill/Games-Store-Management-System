@@ -1,6 +1,4 @@
-import os
-import csv
-from database import *
+from Database import *
 cur_path = os.path.dirname(__file__)
 
 
