@@ -24,8 +24,8 @@ def check_subscription(customer_id):
           subscriptions = load_subscriptions()
           current_date = datetime.now()
           if customer_id in subscriptions:
-                    start_date = subscriptions[customer_id]['StartDate']
-                    end_date = subscriptions[customer_id]['EndDate']
+                    start_date = datetime.strptime(subscriptions[customer_id]['StartDate'], '%Y-%m-%d')
+                    end_date = datetime.strptime(subscriptions[customer_id]['EndDate'], '%Y-%m-%d')
                     return start_date <= current_date <= end_date
           return False
 

@@ -76,7 +76,7 @@ def loadGame(gameName):
 
 def load_bookings():
           Bookings = {}
-          with open(os.path.join(os.path.abspath(os.path.join(cur_path, os.pardir)), 'TXT Files', 'Bookings.txt'), 'r', encoding="UTF-16") as file:
+          with open(os.path.join(os.path.abspath(os.path.join(cur_path, os.pardir)), 'TXT Files', 'Booking.txt'), 'r', encoding="UTF-16") as file:
                     reader = csv.reader(file)
                     next(reader)
                     for row in reader:
@@ -87,4 +87,5 @@ def load_bookings():
 def make_booking(user_id, new_dict):
           rentals = load_bookings()
           rentals[user_id] = new_dict
-          write_dict_to(rentals, "Bookings.txt")
+          write_dict_to(rentals, "Booking.txt")
+

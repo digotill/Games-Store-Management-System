@@ -4,8 +4,8 @@ from database import *
 
 
 game_text = widgets.Text(value='', placeholder='e.g. minecraft', description='Enter a game:', disabled=False,continuous_update=True)
-bg_checkbox = widgets.Checkbox(value=True, description='Include board games', disabled=False, indent=False)
-dg_checkbox = widgets.Checkbox(value=True, description='Include digital games', disabled=False, indent=False)
+bg_checkbox = widgets.Checkbox(value=True, description='Include Board games', disabled=False, indent=False)
+dg_checkbox = widgets.Checkbox(value=True, description='Include Digital games', disabled=False, indent=False)
 game_buttons = widgets.ToggleButtons(options=[],description='Choose a game:',disabled=False,button_style='', tooltips=[])
 game_description = widgets.HTML(value="",placeholder='',description='',)
 out = widgets.Output(layout={'border': '1px solid black'})

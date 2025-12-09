@@ -35,7 +35,7 @@ def on_search(change):
           user_buttons.options = options
 on_search("")
 
-def choose_game(change):
+def choose_user(change):
           Users = load_subscriptions()
           new_description = ""
           inner_dict = Users[change['new']]
@@ -44,7 +44,7 @@ def choose_game(change):
                     new_description += "<br>" + key1 + ": " + inner_dict[key1]
           user_description.value = new_description
 
-user_buttons.observe(choose_game, names='value')
+user_buttons.observe(choose_user, names='value')
 users_text.observe(on_search, names='value')
 basic_checkbox.observe(on_search, names='value')
 premium_checkbox.observe(on_search, names='value')
