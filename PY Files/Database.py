@@ -36,7 +36,7 @@ def loadGameSearch(gameType, hastype=True):
 
 def loadRental():
           Rentals = {}
-          with open(os.path.join(os.path.abspath(os.path.join(cur_path, os.pardir)), 'TXT Files', 'Rentals.txt'), 'r', encoding="UTF-16") as file:
+          with open(os.path.join(os.path.abspath(os.path.join(cur_path, os.pardir)), 'TXT Files', 'Rentals.txt'), 'r', encoding="UTF-8") as file:
                     reader = csv.reader(file)
                     next(reader)
                     for row in reader:
@@ -45,7 +45,7 @@ def loadRental():
           return Rentals
 
 def write_dict_to(new_dict, filename):
-          with open(os.path.join(os.path.abspath(os.path.join(cur_path, os.pardir)), 'TXT Files', filename), 'w', newline='', encoding="UTF-16") as csvfile:
+          with open(os.path.join(os.path.abspath(os.path.join(cur_path, os.pardir)), 'TXT Files', filename), 'w', newline='', encoding="UTF-8") as csvfile:
                     writer = csv.writer(csvfile)
                     writer.writerow([])
                     for primary_key, inner_dict in new_dict.items():
@@ -84,7 +84,7 @@ def loadGame(gameName):
 
 def load_bookings():
           Bookings = {}
-          with open(os.path.join(os.path.abspath(os.path.join(cur_path, os.pardir)), 'TXT Files', 'Booking.txt'), 'r', encoding="UTF-16") as file:
+          with open(os.path.join(os.path.abspath(os.path.join(cur_path, os.pardir)), 'TXT Files', 'Booking.txt'), 'r', encoding="UTF-8") as file:
                     reader = csv.reader(file)
                     next(reader)
                     for row in reader:

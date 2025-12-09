@@ -4,7 +4,7 @@ cur_path = os.path.dirname(__file__)
 
 def load_feedback(file_name='Feedback.txt'):
           feedback_list = {}
-          with open(os.path.abspath(os.path.join(cur_path, os.pardir)) + '\\' + 'TXT Files' + '\\' + file_name, 'r', encoding="UTF-16") as file:
+          with open(os.path.abspath(os.path.join(cur_path, os.pardir)) + '\\' + 'TXT Files' + '\\' + file_name, 'r', encoding="UTF-8") as file:
                     reader = csv.reader(file)
                     next(reader)
                     for row in reader:
