@@ -7,23 +7,29 @@ from datetime import datetime, timedelta
 cur_path = os.path.dirname(__file__)
 now = datetime.now()
 
-def loadGameSearch(gameType):
+def loadGameSearch(gameType, hastype=True):
           Games = {}
 
           if "digital" in gameType:
-                    with open(os.path.join(os.path.abspath(os.path.join(cur_path, os.pardir)), 'TXT Files', 'DigitalGames.txt'), 'r', encoding="UTF-8") as file:
+                    with open(os.path.join(os.path.abspath(os.path.join(cur_path, os.pardir)), 'TXT Files', 'DigitalGames.txt'), 'r', encoding="UTF-16") as file:
                               reader = csv.reader(file)
                               next(reader)
                               for row in reader:
                                         game_id, title, platform, genre, purchase_date = row
-                                        Games[game_id] = {'Type': ' Digital', 'Title': title, 'Platform': platform, 'Genre': genre, 'Purchase Date': purchase_date}
+                                        if hastype:
+                                                  Games[game_id] = {'Type': ' Digital', 'Title': title, 'Platform': platform, 'Genre': genre, 'Purchase Date': purchase_date}
+                                        else:
+                                                  Games[game_id] = {'Title': title, 'Platform': platform, 'Genre': genre, 'Purchase Date': purchase_date}
           if "board" in gameType:
-                    with open(os.path.join(os.path.abspath(os.path.join(cur_path, os.pardir)), 'TXT Files', 'BoardGames.txt'), 'r', encoding="UTF-8") as file:
+                    with open(os.path.join(os.path.abspath(os.path.join(cur_path, os.pardir)), 'TXT Files', 'BoardGames.txt'), 'r', encoding="UTF-16") as file:
                               reader = csv.reader(file)
                               next(reader)
                               for row in reader:
                                         game_id, title, players, genre, purchase_date = row
-                                        Games[game_id] = {'Type': ' Board', 'Title': title, 'Players': players, 'Genre': genre, 'Purchase Date': purchase_date}
+                                        if hastype:
+                                                  Games[game_id] = {'Type': ' Board', 'Title': title, 'Players': players, 'Genre': genre, 'Purchase Date': purchase_date}
+                                        else:
+                                                  Games[game_id] = {'Title': title, 'Players': players, 'Genre': genre, 'Purchase Date': purchase_date}
 
           return Games
 

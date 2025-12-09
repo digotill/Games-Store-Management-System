@@ -33,23 +33,25 @@ eval_games()
 
 
 def on_enter(b):
-          digitals = loadGameSearch(["digital"])
-          board = loadGameSearch(["board"])
-          with out:
-                    for box in checkboxes:
-                              if box.value:
-                                        renting_text.value = "<h3>Games succesfully Pruned</h3>"
-                                        for key, value in digitals.copy().items():
-                                                  del digitals[key]["Type"]
-                                                  if box.description == value["Title"]:
-                                                            del digitals[key]
-                                        for key, value in board.copy().items():
-                                                  del digitals[key]["Type"]
-                                                  if box.description == value["Title"]:
-                                                            del board[key]
-                    write_dict_to(digitals, "DigitalGames.txt")
-                    write_dict_to(board, "BoardGames.txt")
-                    eval_games()
+          digitals = loadGameSearch(["digital"], False)
+          board = loadGameSearch(["board"], False)
+          rentals = loadRental()
+          for box in checkboxes:
+                    if box.value:
+                              renting_text.value = "<h3>Games succesfully Pruned</h3>"
+                              for key, value in digitals.copy().items():
+                                        if box.description == value["Title"]:
+                                                  del digitals[key]
+                                                  del rentals[key]
+                                                  write_dict_to(rentals, "Rentals.txt")
+                              for key, value in board.copy().items():
+                                        if box.description == value["Title"]:
+                                                  del board[key]
+                                                  del rentals[key]
+          write_dict_to(digitals, "DigitalGames.txt")
+          write_dict_to(board, "BoardGames.txt")
+          write_dict_to(rentals, "Rentals.txt")
+          eval_games()
 
 
 enter_button.on_click(on_enter)
