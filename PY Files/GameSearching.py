@@ -23,6 +23,7 @@ def on_search(change):
           for game in Games.values():
                     if game_text.value.lower() in game['Title'].lower() or game_text.value == "":
                               options.append(game['Title'])
+          options = sorted(options)
           game_buttons.options = options
 on_search("")
 

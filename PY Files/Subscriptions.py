@@ -15,8 +15,8 @@ def load_subscriptions(file_name='Subscriptions.txt'):
                     for row in reader:
                               customer_id, subscription_type, start_date, end_date = row
                               subscriptions[customer_id] = {'SubscriptionType': subscription_type,
-                                                            'StartDate': datetime.strptime(start_date, '%Y-%m-%d'),
-                                                            'EndDate': datetime.strptime(end_date, '%Y-%m-%d')}
+                                                            'StartDate': start_date,
+                                                            'EndDate': end_date}
                     return subscriptions
 
 
