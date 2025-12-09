@@ -1,6 +1,9 @@
 import os
 import csv
 from datetime import datetime
+import random
+import string
+from datetime import datetime, timedelta
 from IPython.display import display
 cur_path = os.path.dirname(__file__)
 now = datetime.now()
@@ -89,3 +92,28 @@ def make_booking(user_id, new_dict):
           rentals[user_id] = new_dict
           write_dict_to(rentals, "Booking.txt")
 
+def g_dates():
+    start_bound = datetime(2024, 1, 1)
+    end_bound = datetime(2028, 12, 31)
+
+    time_difference_days = (end_bound - start_bound).days
+    random_days = random.randrange(time_difference_days)
+
+    start_date = start_bound + timedelta(days=random_days)
+
+    end_date = start_date + timedelta(days=365)
+
+    return start_date.strftime('%Y-%m-%d'), end_date.strftime('%Y-%m-%d')
+
+
+
+
+def g_sub_type():
+          if random.random() < 0.5:
+                    return "Basic"
+          else:
+                    return "Premium"
+
+def g_user(length=4):
+    characters = string.ascii_lowercase
+    return ''.join(random.choice(characters) for _ in range(length))
