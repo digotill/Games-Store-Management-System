@@ -1,14 +1,17 @@
 import ipywidgets as widgets
 from ipywidgets import VBox, Layout, HBox
-
-
+import random
+from Subscriptions import *
 from database import *
 
 out = widgets.Output()
 button = widgets.Button(description='Generate files',disabled=False,button_style='',tooltip='Click me',icon='check')
-renting_text = widgets.HTML(value="",placeholder='',description='',)
+sub_text = widgets.Text(value='100', placeholder='', description='Amount of Subscriptions', disabled=False)
+book_text = widgets.Text(value='50', placeholder='e.g. coab', description='Amount of Bookings', disabled=False)
+rent_text = widgets.Text(value='0.5', placeholder='e.g. coab', description='Rental Chance', disabled=False)
+renting_text = widgets.HTML(value="",placeholder='',description='')
 
-generation_widget = VBox([button, renting_text, out], layout=Layout(display='flex'))
+generation_widget = VBox([sub_text, book_text, rent_text, button, renting_text, out], layout=Layout(display='flex'))
 
 def g_subscriptions(n_subs):
           subscriptions = {}
@@ -18,15 +21,27 @@ def g_subscriptions(n_subs):
           write_dict_to(subscriptions, "Subscriptions.txt")
 
 def g_bookings(n_bookings):
-          pass
+          bookings = {}
+          for i in range(n_bookings):
+                    user_id = random.choice(list(load_subscriptions().keys()))
+                    bookings[user_id] = {'Date': " " + g_dates()[0], 'Time': " " + g_time(), 'Guests': " " + g_guests()}
+          write_dict_to(bookings, "Booking.txt")
 
-def g_rentals():
-          pass
+def g_rentals(rental_chance):
+          Games = loadGameSearch(["digital", "board"])
+          new_dict = {}
+          for key in Games.keys():
+                    user_id = random.choice(list(load_subscriptions().keys()))
+                    dates = g_dates()
+                    date2 = dates[1] if random.random() < rental_chance else " "
+                    new_dict[key] = {"Start": " " + dates[0], "End": " " + date2, "UserID": " " + user_id}
+          write_dict_to(new_dict, "Rentals.txt")
 
-def g_games():
-          pass
 
 def on_enter(b):
+          g_subscriptions(int(sub_text.value))
+          g_bookings(int(book_text.value))
+          g_rentals(int(rent_text.value))
           renting_text.value = "<h3>Genration Successful</h3>"
 
 button.on_click(on_enter)

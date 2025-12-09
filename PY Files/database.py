@@ -1,10 +1,9 @@
-import os
 import csv
-from datetime import datetime
+import os
 import random
 import string
 from datetime import datetime, timedelta
-from IPython.display import display
+
 cur_path = os.path.dirname(__file__)
 now = datetime.now()
 
@@ -92,20 +91,20 @@ def make_booking(user_id, new_dict):
           rentals[user_id] = new_dict
           write_dict_to(rentals, "Booking.txt")
 
-def g_dates():
-    start_bound = datetime(2024, 1, 1)
-    end_bound = datetime(2028, 12, 31)
 
-    time_difference_days = (end_bound - start_bound).days
-    random_days = random.randrange(time_difference_days)
+def g_dates(start=2023, end=2028):
+          start_bound = datetime(start, 1, 1)
+          end_bound = datetime(end, 1, 1)
+          end_bound_for_start = datetime.now()
 
-    start_date = start_bound + timedelta(days=random_days)
+          time_difference_days = (end_bound_for_start - start_bound).days
+          random_days = random.randrange(time_difference_days)
+          start_date = start_bound + timedelta(days=random_days)
+          time_difference_days = (end_bound - end_bound_for_start).days
+          random_days = random.randrange(time_difference_days)
+          end_date = end_bound_for_start + timedelta(days=random_days)
 
-    end_date = start_date + timedelta(days=365)
-
-    return start_date.strftime('%Y-%m-%d'), end_date.strftime('%Y-%m-%d')
-
-
+          return start_date.strftime('%Y-%m-%d'), end_date.strftime('%Y-%m-%d')
 
 
 def g_sub_type():
@@ -115,5 +114,28 @@ def g_sub_type():
                     return "Premium"
 
 def g_user(length=4):
-    characters = string.ascii_lowercase
-    return ''.join(random.choice(characters) for _ in range(length))
+          characters = string.ascii_lowercase
+          return ''.join(random.choice(characters) for _ in range(length))
+
+def g_time():
+          if random.random() < 0.5:
+                    return "2pm"
+          else:
+                    return "6pm"
+
+def g_guests():
+          return str(random.randint(0, 3))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
