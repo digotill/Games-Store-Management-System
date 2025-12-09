@@ -1,74 +1,85 @@
-# Survivor Coursework Project
+# Coursework: Games Store Management System
 
-![Game Cover](Assets/UI/images/cover2.png)
+**Module:** 25COA122 - Introduction to Programming and Databases
 
-## 🎮 About The Game
+**Assessment Weight:** 50% of the module assessment
 
-2D survivor style game, inspired by vampire survivors. Procedurally generated map, different guns, enemies and more.
+**Submission Deadline:** 11am on Wednesday 14th January 2026
 
-## 🚀 Features
+---
 
-- Engaging 2D top-down gameplay
-- Multiple weapons with unique characteristics
-- Perlin noise-generated environments
-- Advanced particle systems for visual effects
-- Customizable game settings
+## Project Overview
 
-## 🖼 Screenshots
+Develop a **Board/Video Games Management System** for a new Gaming Store. This system will manage game rentals and bookings for face-to-face group sessions, all based on customer subscription status.
 
-![Gameplay Screenshot](Assets/UI/images/game_screenshot.png)
+The system will enable a store manager to:
+* Maintain a database of all games (board and video).
+* Check game availability and manage rentals.
+* Manage a booking system for in-store game sessions (2pm-6pm or 6pm-10pm).
+* Collect and process customer feedback upon game return.
+* Identify and suggest unpopular games for inventory pruning.
 
-## 📦 Dependencies
+---
 
-To run this game, you'll need the following Python packages listed in the requirements.txt
+## Key Features and Functionality
 
-You can install the required packages using pip:
+| Feature | Description | Technical Requirement |
+| :--- | :--- | :--- |
+| **Game Inventory** | Store and manage details for a minimum of 10 board games and 10 video games. | **Files 1 & 2** (`Board_Game_Info.txt`, `Video_Game_Info.txt`) |
+| **Search Function** | Search for games by type, title, and genre, returning full game records and availability. | **Python Cell:** `gameSearch` |
+| **Game Rental** | Rent a game to a subscribed customer after validating their 4-letter ID using `subscriptionManager.pyc`. | **Python Cell:** `gameRent`, **File 3** (`Rental.txt`) |
+| **Session Booking** | Allow subscribers to book slots for up to 50 persons. Subscribers can bring up to 3 guests. | **Python Cell:** `menu`, **File 4** (`Booking.txt`) |
+| **Game Return & Feedback** | Update records upon return and collect star rating/comments using `feedbackManager.pyc`. | **Python Cell:** `gameReturn` |
+| **Inventory Pruning** | Suggest unpopular games for removal based on rental frequency. Must include **visualisations**. | **Python Cell:** `inventoryPruning` |
+| **User Interface** | Main application menu built using **IPyWidgets** in a single-window GUI. | **Python Cell:** `menu` |
 
-```bash
-pip install -r requirements.txt
-```
+---
 
-### Installation
+## Program Structure and Submission
 
-1. Clone the repository
-   git clone https://github.com/yourusername/survivor-coursework.git
-2. Navigate to the project directory
-   cd survivor-coursework-project
-3. Install required packages
-   pip install -r requirements.txt
+The project **must** be developed in **Google Colab** and submitted as an `.ipynb` notebook.
 
-### Running the Game
+### Required Python Cells (Modules)
 
-Simply run the provided "run.exe" file to start the game.
+You MUST label the menu cells as follows:
+* `database`: Common functions for data file interaction.
+* `gameSearch`: Handles searching games.
+* `gameRent`: Handles the rental process.
+* `gameReturn`: Handles game return and feedback collection.
+* `inventoryPruning`: Suggests unpopular games for removal (with visualisations).
+* `menu`: The main cell providing the user interface using **IPyWidgets**.
 
-## 🎛 Controls
+### Required Files
 
-- WASD: Move the player
-- Mouse: Aim
-- Left Click: Shoot
-- Shift: Sprint
-- Jump: Space
-- ESC: Pause game
+The submission requires a zip file containing the `.ipynb` notebook and all files below in the same folder:
 
-### Packaging the Game
+| File Name | Type | Minimum Records | Notes |
+| :--- | :--- | :--- | :--- |
+| `Board_Game_Info.txt` | Data File | 10 | Stores board game details. |
+| `Video_Game_Info.txt` | Data File | 10 | Stores video game details. |
+| `Rental.txt` | Data File | 50 | Rental history and current rented status. |
+| `Booking.txt` | Data File | 50 | Session booking history. |
+| `Game_Feedback.txt` | Data File | 0 | Populated by the program (`gameReturn`). |
+| `subscriptionManager.pyc` | Provided Module | N/A | Must be included. |
+| `feedbackManager.pyc` | Provided Module | N/A | Must be included. |
 
-To create an executable, use pyinstaller:
+---
 
-```bash
-pyinstaller --clean --icon="C:\Users\digot\Projects\6-Minute-Bloodbath-Coursework-Project\Assets\UI\images\cover.png" Run.py --onedir --windowed --noconsole --add-data "Code:Code"
-```
+## Coding Restrictions
 
-## 👨‍💻 Authors
+* Your code must **NOT** include any **Class type definition**.
+* Your code must **NOT** have any **SQL statements**.
+* Your code must **NOT** have any **nested function declaration**.
+* You must use **ONLY** standard Python libraries and **MatPlotLib**.
+* You must use **ONLY iPyWidgets** for your GUI.
 
- -[Digotill](https://github.com/digotill)
+---
 
-## 📄 License
+## GenAI Tool Usage Statement
 
-This project is licensed under the [MIT license] - see the [LICENSE](File System/LICENSE.md) file for details.
+GenAI tools are permitted in an **assistive role** only for:
+1.  Finding literature sources.
+2.  Help writing code.
+3.  Text proofreading.
 
-## 🙏 Acknowledgments
-
-- Special thanks to [DaFluffyPotato](https://github.com/DaFluffyPotato) for some of the code used in this project
-  - Grass system implementation
-- Inspiration drawn from various top-down survival games
-- Thanks to the Pygame and OpenGL communities for their excellent libraries and documentation
+**Inappropriate usage** includes: Text/code generation, or interpretation/discussion of results. You are responsible for fact checking any AI generated material.

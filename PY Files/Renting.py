@@ -28,6 +28,8 @@ def on_enter(b):
                               if check_availability(game_ID_text.value):
                                         message += "<br><h3>Game has been rented</h3>"
                                         rent_game(game_ID_text.value, user_ID_text.value)
+                                        user_ID_text.value = ""
+                                        game_ID_text.value = ""
                               else:
                                         message += "<br><h3>Game unavailable to rent</h3>"
           renting_text.value = message

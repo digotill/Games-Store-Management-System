@@ -1,6 +1,7 @@
 import os
 import csv
 from datetime import datetime
+from IPython.display import display
 cur_path = os.path.dirname(__file__)
 now = datetime.now()
 

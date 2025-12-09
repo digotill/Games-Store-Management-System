@@ -24,6 +24,9 @@ def on_enter(b):
           if return_game(game_ID_text.value):
                     message += "<h3>Game succesfully returned and Feedback added</h3>"
                     add_feedback({'GameID': " " +   game_ID_text.value, 'Rating': " " +   star_slider.value, 'Comments': " " +   comment_text.value})
+                    game_ID_text.value = ""
+                    comment_text.value = ""
+                    star_slider.value = "0"
           else:
                     message += "<h3>The Game ID is incorrect or cannot be returned</h3>"
           renting_text.value = message
